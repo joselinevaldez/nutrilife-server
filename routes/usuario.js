@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 var app=express();
 var mdAutentication = require('../middlewares/autenticacion');
 var Usuario = require('../models/usuario');
-
+//comentario
 app.get('/',mdAutentication.verificaToken,(req,res,next)=> {
     Usuario.find({}, (err,usuarios)=>{
         if(err){
