@@ -60,6 +60,6 @@ app.use('/',appRoutes);
 
 //Escuchar peticiones
 
-app.listen(3000,()=>{
+app.listen( process.env.PORT || 3000,()=>{
     console.log('express server puerto 3000: \x1b[32m%s\x1b[0m',' online');
 })
