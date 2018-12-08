@@ -2,11 +2,38 @@ var express = require('express');
 var mdAutentication = require('../middlewares/autenticacion');
 var app=express();
 var Medidas = require('../models/historicomedidas');
-app.get('/',(req,res,next)=> {
-    res.status(200).json({
-        ok:true,
-        mensaje:'Peticion realizada correctamente'
-    });
+app.get('/',mdAutentication.verificaToken, (req, res, next) => {
+    var id = req.params.id;
+    Medidas.find({"paciente": id}, )
+        
+        
+       
+        .exec(
+            (err, medidas) => {
+             
+            
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando medidas',
+                        errors: err
+                    });
+                }
+               
+                     res.status(200).json({
+                        ok: true,
+                        medidas: medidas
+                        
+                    });
+
+                
+            });
+            
+            
+
+
+
+            
 });
 
 
