@@ -76,6 +76,7 @@ app.put('/:id',(req,res)=>{
         expediente.estatura= body.estatura,
         expediente.brazo= body.brazo,
         expediente.gluteo=body.gluteo,
+        expediente.muslo=body.muslo,
         expediente.cadera=body.cadera,
         expediente.grasacorporal= body.grasacorporal,
         expediente.grasaviceral= body.grasaviceral,
