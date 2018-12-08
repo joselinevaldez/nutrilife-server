@@ -2,7 +2,7 @@ var express = require('express');
 var mdAutentication = require('../middlewares/autenticacion');
 var app=express();
 var Medidas = require('../models/historicomedidas');
-app.get('/',mdAutentication.verificaToken, (req, res, next) => {
+app.get('/:id',mdAutentication.verificaToken, (req, res, next) => {
     var id = req.params.id;
     Medidas.find({"paciente": id}, )
         
