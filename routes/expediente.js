@@ -19,20 +19,11 @@ app.post('/',mdAutentication.verificaToken,(req, res)=>{
         estatura: body.estatura,
         grasacorporal: body.grasacorporal,
         grasaviceral: body.grasaviceral,
-
-        abdomenA: body. abdomenA,
-        cinturaA: body.cinturaA,
-        pesoA: body.pesoA,
-        grasacorporalA: body.grasacorporalA,
-        grasaviceralA: body.grasaviceralA,
-
-        abdomenB: body. abdomenB,
-        cinturaB: body.cinturaB,
-        pesoB: body.pesoB,
-        grasacorporalB: body.grasacorporalB,
-        grasaviceralB: body.grasaviceralB,
-
-        diagnostico:body.diagnostico,
+        cadera:body.cadera,
+        muslo:body.muslo,
+        brazo:body.brazo,
+        gluteo:body.gluteo,     
+        diagnosticoimc:body.diagnosticoimc,
         imc: body.imc,
         dietaA:body.dietaA,
         recomendaciones: body.recomendaciones,
@@ -83,24 +74,16 @@ app.put('/:id',(req,res)=>{
         expediente.cintura= body.cintura,
         expediente.peso= body.peso,
         expediente.estatura= body.estatura,
+        expediente.brazo= body.brazo,
+        expediente.gluteo=body.gluteo,
+        expediente.cadera=body.cadera,
         expediente.grasacorporal= body.grasacorporal,
         expediente.grasaviceral= body.grasaviceral,
+    
 
-        expediente.abdomenA= body. abdomenA,
-        expediente.cinturaA= body.cinturaA,
-        expediente.pesoA= body.pesoA,
-        expediente.grasacorporalA= body.grasacorporalA,
-        expediente.grasaviceralA= body.grasaviceralA,
-
-        expediente.abdomenB= body. abdomenB,
-        expediente.cinturaB= body.cinturaB,
-        expediente.pesoB= body.pesoB,
-        expediente.grasacorporalB= body.grasacorporalB,
-        expediente.grasaviceralB= body.grasaviceralB,
-
+       
         expediente.imc= body.imc,
-       expediente.diagnostico=body.diagnostico,
-       expediente.recomendaciones=body.recomendaciones
+       expediente.diagnosticoimc=body.diagnosticoimc
         expediente.save((err, expedienteActualizado)=>{
             if(err){
                 return res.status(400).json({
