@@ -77,4 +77,68 @@ app.post('/',mdAutentication.verificaToken,(req, res)=>{
     } );
    
 });
+
+app.put('/:id',(req,res)=>{
+    var id=req.params.id;
+    var body = req.body;
+    Meta.findById(id, (err,meta)=>{
+        
+        if(err){
+            return res.status(500).json({
+                ok:false,
+                mensaje:'Error al buscar meta',
+                errors:err
+            });
+
+        }
+        if(!expediente){
+            return res.status(400).json({
+                ok:false,
+                mensaje:'La meta con el id '+id+' no existe',
+                errors:err
+            });
+        }
+
+        meta.abdomen= body.abdomen,
+        meta.abdomenmeta=body.abdomenmeta,
+        meta.abdomencm=body.abdomencm,
+
+        meta.cintura= body.cintura,
+        meta.cinturameta=body.cinturameta,
+        meta.cinturacm=body.cinturacm,
+
+        meta.peso= body.peso,
+        pesometa=body.pesometa,
+        meta.pesokg=body.pesokg,
+        
+        meta.brazo=body.brazo,
+        meta.brazometa=body.brazometa,
+        meta.brazocm=body.brazocm,
+
+        meta.gluteo=body.gluteo, 
+        meta.gluteometa=body.gluteometa,
+        meta.gluteocm=body.gluteocm,    
+        
+        
+       
+       
+        meta.save((err, metaAct)=>{
+            if(err){
+                return res.status(400).json({
+                    ok:false,
+                    mensaje:'Error al actualizar meta',
+                    errors: err
+                });
+            }
+            res.status(200).json({
+                ok:true,
+                meta: metaAct
+            });
+
+        });
+    })
+
+   
+
+});
 module.exports=app;
