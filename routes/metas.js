@@ -1,5 +1,5 @@
 var express = require('express');
-
+var mdAutentication = require('../middlewares/autenticacion');
 var app=express();
 var Meta = require('../models/metas');
 app.get('/',(req,res,next)=> {
@@ -14,7 +14,7 @@ app.post('/',mdAutentication.verificaToken,(req, res)=>{
         abdomen: body.abdomen,
         abdomenmeta:body.abdomenmeta,
         abdomencm:body.abdomencm,
-        
+
         cintura: body.cintura,
         cinturameta:body.cinturameta,
         cinturacm:body.cinturacm,
