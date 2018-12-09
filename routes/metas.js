@@ -2,11 +2,37 @@ var express = require('express');
 var mdAutentication = require('../middlewares/autenticacion');
 var app=express();
 var Meta = require('../models/metas');
-app.get('/',(req,res,next)=> {
-    res.status(200).json({
-        ok:true,
-        mensaje:'Peticion realizada correctamente'
-    });
+app.get('/:id',mdAutentication.verificaToken, (req, res, next) => {
+    var id = req.params.id;
+    Meta.findOne({"paciente": id}, )
+        
+        
+        .exec(
+            (err, metas) => {
+             
+            
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando metas',
+                        errors: err
+                    });
+                }
+               
+                     res.status(200).json({
+                        ok: true,
+                        metas: metas
+                        
+                    });
+
+                
+            });
+            
+            
+
+
+
+            
 });
 app.post('/',mdAutentication.verificaToken,(req, res)=>{
     var body = req.body;
