@@ -91,7 +91,7 @@ app.put('/:id',(req,res)=>{
             });
 
         }
-        if(!expediente){
+        if(!meta){
             return res.status(400).json({
                 ok:false,
                 mensaje:'La meta con el id '+id+' no existe',
