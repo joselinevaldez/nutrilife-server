@@ -6,7 +6,7 @@ app.get('/:id',mdAutentication.verificaToken, (req, res, next) => {
     var id = req.params.id;
     Medidas.find({"paciente": id}, )
         
-        
+    .sort({fecha: 'descending'})
        
         .exec(
             (err, medidas) => {
