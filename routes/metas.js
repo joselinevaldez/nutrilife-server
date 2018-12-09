@@ -81,7 +81,7 @@ app.post('/',mdAutentication.verificaToken,(req, res)=>{
 app.put('/:id',(req,res)=>{
     var id=req.params.id;
     var body = req.body;
-    Meta.find({"paciente":id}, (err,meta)=>{
+    Meta.findOne({"paciente":id}, (err,meta)=>{
         
         if(err){
             return res.status(500).json({
