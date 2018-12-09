@@ -34,6 +34,7 @@ var alimentospRoutes = require('./routes/alimentosp');
 var dietasRoutes = require('./routes/dieta');
 var dietapacienteRoutes = require('./routes/dietapaciente');
 var historicomedidasRoutes = require('./routes/historicomedidas');
+var metasRoutes = require('./routes/metas');
 //conexion base de datos
 //mongoose.connection.openUri('mongodb://localhost:27017/nutrilife',(err,res)=>{
     mongoose.connection.openUri('mongodb://joseline:joseline04@ds151927.mlab.com:51927/nutrilife',(err,res)=>{
@@ -58,6 +59,7 @@ app.use('/alimentosp',alimentospRoutes);
 app.use('/dietas',dietasRoutes);
 app.use('/dietapaciente',dietapacienteRoutes);
 app.use('/medidas',historicomedidasRoutes);
+app.use('/metas',metasRoutes);
 app.use('/',appRoutes);
 
 //Escuchar peticiones
