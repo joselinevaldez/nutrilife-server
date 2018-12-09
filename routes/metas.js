@@ -81,7 +81,7 @@ app.post('/',mdAutentication.verificaToken,(req, res)=>{
 app.put('/:id',(req,res)=>{
     var id=req.params.id;
     var body = req.body;
-    Meta.findById(id, (err,meta)=>{
+    Meta.find({"paciente":id}, (err,meta)=>{
         
         if(err){
             return res.status(500).json({
@@ -94,7 +94,7 @@ app.put('/:id',(req,res)=>{
         if(!meta){
             return res.status(400).json({
                 ok:false,
-                mensaje:'La meta con el id '+id+' no existe',
+                mensaje:'El paciente no tiene ninguna meta',
                 errors:err
             });
         }
