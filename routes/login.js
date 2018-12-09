@@ -186,7 +186,8 @@ function obtenerMenu( ROLE ){
               titulo: 'Progreso',
               icono: 'mdi mdi-chart-line',
               submenu: [
-                { titulo: 'Mi progreso',icono: 'mdi mdi-account-star', url: '/progreso' }
+                { titulo: 'Mi progreso',icono: 'mdi mdi-account-star', url: '/progreso' },
+                { titulo: 'Mis metas',icono: 'fa fa-star', url: '/metas' }
                 
                
               ]
