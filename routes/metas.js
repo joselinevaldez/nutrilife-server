@@ -108,7 +108,7 @@ app.put('/:id',(req,res)=>{
         meta.cinturacm=body.cinturacm,
 
         meta.peso= body.peso,
-        pesometa=body.pesometa,
+        meta.pesometa=body.pesometa,
         meta.pesokg=body.pesokg,
         
         meta.brazo=body.brazo,
