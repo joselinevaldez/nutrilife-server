@@ -119,6 +119,8 @@ function obtenerMenu( ROLE ){
                 icono: 'mdi mdi-calendar',
                 submenu: [
                     { titulo: 'Mi Calendario',icono: 'mdi mdi-calendar-clock', url: '/calendario' },
+                    { titulo: 'Lista de citas',icono: 'mdi mdi-calendar-text', url: '/listacitas' },
+                  
                     
                 ]
                 
