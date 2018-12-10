@@ -32,7 +32,35 @@ app.get('/nutriologo',mdAutentication.verificaToken,(req,res,next)=> {
 
         });
 });
+app.get('/nutriologo/lista',mdAutentication.verificaToken,(req,res,next)=> {
+    Citas.find({"nutriologo": req.usuario._id}, )
+    .populate("paciente")   
+    .exec(
+        (err, citas) => {
+       
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    mensaje: 'Error cargando citas',
+                    errors: err
+                });
+            }
 
+            Citas.count({}, (err, conteo) => {
+                    ////
+                res.status(200).json({
+                    ok: true,
+                    citas: citas,
+                    total: conteo
+                });
+
+            })
+        
+
+
+
+        });
+});
 app.get('/paciente',(req,res,next)=> {
     var id = req.query.id
     Citas.find({"paciente": id}, )
