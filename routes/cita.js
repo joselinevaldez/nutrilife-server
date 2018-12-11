@@ -33,7 +33,9 @@ app.get('/nutriologo',mdAutentication.verificaToken,(req,res,next)=> {
         });
 });
 app.get('/nutriologo/lista',mdAutentication.verificaToken,(req,res,next)=> {
-    Citas.find({"nutriologo": req.usuario._id}, )
+    var datestart = req.query.datestart;
+    var dateend = req.query.dateend;
+    Citas.find({nutriologo: req.usuario._id, $and: [ { start: { $gte: new Date(datestart) } }, { start: { $lte: new Date(dateend) } } ]})
     .populate("paciente")   
     .exec(
         (err, citas) => {

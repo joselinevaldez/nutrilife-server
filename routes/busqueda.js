@@ -29,6 +29,7 @@ app.get('/coleccion/:tabla/:busqueda',mdAutentication.verificaToken, (req, res) 
         case 'dietas':
             promesa = buscarDietas(busqueda, regex,nutriologo);
             break;
+       
 
         
 
@@ -75,6 +76,8 @@ function buscarPacientes(busqueda, regex,nutriologo) {
 
     });
 }
+
+
 function buscarAlimentos(busqueda, regex,nutriologo) {
     
        return new Promise((resolve, reject) => {
