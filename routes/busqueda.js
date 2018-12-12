@@ -10,7 +10,7 @@ app.get('/coleccion/:tabla/:busqueda',mdAutentication.verificaToken, (req, res) 
     var nutriologo =req.usuario._id;
     var busqueda = req.params.busqueda;
     var tabla = req.params.tabla;
-    
+    var categoria = req.query.categoria || "";
     var regex = new RegExp(busqueda, 'i');
 
     var promesa;
