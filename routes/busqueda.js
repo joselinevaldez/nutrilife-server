@@ -23,6 +23,9 @@ app.get('/coleccion/:tabla/:busqueda',mdAutentication.verificaToken, (req, res) 
         case 'alimentos':
             promesa = buscarAlimentos(busqueda, regex,nutriologo);
             break;
+        case 'alimentoscategoria':
+            promesa = buscarAlimentosCategoria(busqueda, regex,categoria,nutriologo);
+            break;
         case 'platillos':
             promesa = buscarPlatillos(busqueda, regex,nutriologo);
             break;
@@ -100,6 +103,28 @@ function buscarAlimentos(busqueda, regex,nutriologo) {
    
        });
    }
+function buscarAlimentosCategoria(busqueda, regex,categoria,nutriologo) {
+    
+    return new Promise((resolve, reject) => {
+
+        Alimento.find({"nutriologo":nutriologo ,"grupo":categoria} )
+           // .find({"estatus": estatus})
+            .or([{ 'nombre': regex }, { 'grupo': regex }])
+                      
+            .exec((err, alimentos) => {
+
+                if (err) {
+                    reject('Error al cargar alimento', err);
+                } else {
+                    resolve(alimentos);
+                }
+
+
+            })
+
+
+    });
+}
 function buscarPlatillos(busqueda, regex,nutriologo) {
 
     return new Promise((resolve, reject) => {
