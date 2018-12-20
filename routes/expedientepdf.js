@@ -11,7 +11,7 @@ app.get('/',(req,resp,next)=> {
         <p>Estoy generando PDF a partir de este código HTML sencillo</p>
         `;
 
-        pdf.create(contenido).toFile('./salida.pdf', function(err, res) {
+        pdf.create(contenido).toFile('./pdf/salida.pdf', function(err, res) {
             if (err){
                 console.log(err);
                 resp.status(400).json({
@@ -22,7 +22,7 @@ app.get('/',(req,resp,next)=> {
                 console.log(res);
                 resp.status(200).json({
                     ok:true,
-                    mensaje:'Peticion realizada correctamente'
+                    mensaje:'Pdf generado correctamente'
                 });
             }
         });
